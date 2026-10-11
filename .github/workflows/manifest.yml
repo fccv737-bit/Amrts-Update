@@ -1,0 +1,41 @@
+name: Build update manifest
+
+# Runs by itself every time you upload files to game/, change the launcher exe or edit release.json.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "game/**"
+      - "launcher/Army_Men_Online.exe"
+      - "release.json"
+      - "tools/make_manifest.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-manifest
+  cancel-in-progress: true
+
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Generate manifest.json
+        run: python tools/make_manifest.py
+      - name: Commit manifest
+        run: |
+          git config user.name "update-bot"
+          git config user.email "update-bot@users.noreply.github.com"
+          git add manifest.json launcher/version.txt
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "Update manifest [skip ci]"
+            git push
+          fi
