@@ -1,0 +1,15 @@
+{
+  "game_version": "1.0.1",
+  "game_notes": [
+    "Marshall 3la bta3y.",
+    "Added the Fix / Repair button to the launcher."
+  ],
+  "delete": [],
+  "if_missing": [],
+  "mandatory": false,
+
+  "launcher_version": "1.1.0",
+  "launcher_file": "launcher/Army_Men_Online.exe",
+
+  "external_files": []
+}
