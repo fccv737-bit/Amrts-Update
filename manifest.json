@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "generated": "2026-10-11T23:24:19Z",
+  "game": {
+    "version": "1.0.1",
+    "revision": "e3b0c44298fc1c14",
+    "mandatory": false,
+    "notes": [
+      "Marshall 3la bta3y.",
+      "Added the Fix / Repair button to the launcher."
+    ],
+    "delete": [],
+    "files": []
+  },
+  "launcher": {
+    "version": "1.1.0",
+    "path": "launcher/Army_Men_Online.exe",
+    "size": 113152,
+    "sha256": "016a4c50cab9588001bc6495e7eaf61b51c6cda429277545221cc0b30c0b3c4f",
+    "notes": []
+  }
+}
